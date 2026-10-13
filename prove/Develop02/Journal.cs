@@ -28,10 +28,10 @@ public class Journal
     }
     public void SaveToFile(string fileName)
     {
-        string entriesString = "";
-        foreach (Entry entry in _Entries)
+        string entriesString = _Entries[0].ToFileString();
+        foreach (Entry entry in _Entries.Skip(1))
         {
-            entriesString += (entry.ToFileString());
+            entriesString += "\n" + (entry.ToFileString());
         }
         File.WriteAllText(fileName, entriesString);
     }
