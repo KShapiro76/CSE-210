@@ -1,10 +1,23 @@
 using System.Runtime.CompilerServices;
+/*Define Journal Class
+_Entries list of entries
 
+AddEntry: Generates and stores an entry in _Entries list
+Display: displays each entry one by one
+SaveToFile:Combines all entries as strings into one string 
+    and puts it in a file
+LoadFromFile:Takes single string and separates it into 
+    individual entries to put into the _Entries list
+*/
 public class Journal
 {
     public List<Entry> _Entries = new List<Entry>();
     public void AddEntry(List<string> Prompts)
     {
+        /*Output example:
+        What was the best part of my day?
+         ~ When I ate my donut!
+        */
         Entry entry1 = new Entry();
         Random rand = new Random();
         int randomPrompt = rand.Next(Prompts.Count());
@@ -20,6 +33,14 @@ public class Journal
     }
     public void Display()
     {
+        /* Output example:
+        Date: 10/13/26 ~ Prompt: What was the best part of my day?
+         ~ When I ate my donut!
+
+        Date: 10/13/26 ~ Prompt: What was the strongest emotion I felt today?
+         ~ I felt very happy today!
+         
+        */
         foreach (Entry entry in _Entries)
         {
             entry.Display();
@@ -49,8 +70,10 @@ public class Journal
         
         foreach (string part in parts)
         {
+            int lineLength = part.Length;
+            string partLine = part.Remove(lineLength-1);
             Entry entry1 = new Entry();
-            entry1.FromFileEntry(part);
+            entry1.FromFileEntry(partLine);
             _Entries.Add(entry1);
         }
     }
