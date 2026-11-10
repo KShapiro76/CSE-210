@@ -21,6 +21,21 @@ public class ReflectionActivity : Activity
     ];
     public ReflectionActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {}
+    private bool AreAllSelected()
+    {
+        bool allSelected = true;
+        foreach (Prompt prompt in _secondaryPrompts)
+        {
+            if (allSelected)
+            {
+                allSelected = prompt.IsSelected();
+            }
+            else
+            {break;}
+            
+        }
+        return allSelected;
+    }
     public void InteractReflection()
     {
         InteractPrologue();
@@ -43,10 +58,12 @@ public class ReflectionActivity : Activity
         DateTime futureTime = startTime.AddSeconds(GetDuration());
 
         DateTime currentTime = DateTime.Now;
-        while (futureTime > currentTime)
+        while (futureTime > currentTime && !AreAllSelected())
         {
-            randIndex = rand2.Next(0, _secondaryPrompts.Count);
-            
+            do 
+            {
+                randIndex = rand2.Next(0, _secondaryPrompts.Count);
+            } while (_secondaryPrompts[randIndex].IsSelected());
             Console.Write(" > ");
             Console.Write(_secondaryPrompts[randIndex].GetText() + " ");
             _secondaryPrompts[randIndex].SelectOrDeselect();
