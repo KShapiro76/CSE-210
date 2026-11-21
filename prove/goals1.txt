@@ -1,0 +1,4 @@
+Total Points: 175
+[X] Simple Goal: Give a talk (Speak in Sacrament meeting) -- Points: 100
+[ ] Eternal Goal: Study the scriptures (study everyday) -- Points: 50
+[ ] Checklist Goal: Attend the temple (go to the temple dude) -- Completed 1/3 -- Points: 75 -- BonusPoints: 300

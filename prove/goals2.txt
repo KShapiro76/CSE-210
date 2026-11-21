@@ -1,0 +1,4 @@
+Total Points: 235
+[X] Simple Goal: Order McDonalds (order food bro) -- Points: 25
+[ ] Eternal Goal: eat breakfast (dude just eat it) -- Points: 50
+[ ] Checklist Goal: watch episodes (watch an anime) -- Completed 11/20 -- Points: 10 -- BonusPoints: 4000
